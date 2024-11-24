@@ -39,7 +39,7 @@ export class MazeRatMonsterSheet extends ActorSheet {
 
   /**
    * Prepare data for rendering the Actor sheet
-   * The prepared data object contains both the actor data as well as additional sheet options
+   * The prepared data object contains the actor data as well as additional sheet options
    */
   getData() {
       const data = super.getData();
@@ -50,11 +50,11 @@ export class MazeRatMonsterSheet extends ActorSheet {
       let backpack = [];
       
       for( let item_index = 0; item_index < data.actor.items.length; ++item_index ){
-          if( data.actor.items[item_index].data.storage == "HANDS" )
+          if( data.actor.items[item_index].data.storage === "HANDS" )
               hands.push( data.actor.items[item_index].name );
-          else if( data.actor.items[item_index].data.storage == "BELT" )
+          else if( data.actor.items[item_index].data.storage === "BELT" )
               belt.push( data.actor.items[item_index].name );
-          else if( data.actor.items[item_index].data.storage == "WORN" )
+          else if( data.actor.items[item_index].data.storage === "WORN" )
               worn.push( data.actor.items[item_index].name );
           else
               backpack.push( data.actor.items[item_index].name );          
@@ -89,7 +89,7 @@ export class MazeRatMonsterSheet extends ActorSheet {
         if (!this.options.editable) return;
 
         // Update Inventory Item
-        html.find('.item-collections').on("click", ".item-weild", this._onClickWeildItem.bind(this));
+        html.find('.item-collections').on("click", ".item-wield", this._onClickWieldItem.bind(this));
         html.find('.item-collections').on("click", ".item-attach", this._onClickAttachItem.bind(this));
         html.find('.item-collections').on("click", ".item-wear", this._onClickWearItem.bind(this));
         html.find('.item-collections').on("click", ".item-stow", this._onClickStowItem.bind(this));
@@ -139,7 +139,7 @@ export class MazeRatMonsterSheet extends ActorSheet {
 
   /* -------------------------------------------- */
 
-    async _onClickWeildItem(event) {
+    async _onClickWieldItem(event) {
         event.preventDefault();
         const a = event.currentTarget;
         const action = a.dataset.action;

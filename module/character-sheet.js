@@ -1,8 +1,7 @@
-
 /**
  * Extend the basic ActorSheet with some very simple modifications
  */
-import { MazeRatGenerators } from "./generators.js";
+import {MazeRatGenerators} from "./generators.js";
 
 
 export class MazeRatCharacterSheet extends ActorSheet {
@@ -50,11 +49,11 @@ export class MazeRatCharacterSheet extends ActorSheet {
       let backpack = [];
       
       for( let item_index = 0; item_index < data.actor.items.length; ++item_index ){
-          if( data.actor.items[item_index].data.storage == "HANDS" )
+          if( data.actor.items[item_index].data.storage === "HANDS" )
               hands.push( data.actor.items[item_index].name );
-          else if( data.actor.items[item_index].data.storage == "BELT" )
+          else if( data.actor.items[item_index].data.storage === "BELT" )
               belt.push( data.actor.items[item_index].name );
-          else if( data.actor.items[item_index].data.storage == "WORN" )
+          else if( data.actor.items[item_index].data.storage === "WORN" )
               worn.push( data.actor.items[item_index].name );
           else
               backpack.push( data.actor.items[item_index].name );          
@@ -133,8 +132,7 @@ export class MazeRatCharacterSheet extends ActorSheet {
       test.style.fontSize = size+"px";
       test.style.fontFamily = "JustAnotherHand";
       test.innerHTML = text;
-      let width = (test.clientWidth + 1)
-      return width;
+      return test.clientWidth + 1;
   }
     
   /* -------------------------------------------- */
@@ -145,7 +143,7 @@ export class MazeRatCharacterSheet extends ActorSheet {
         const action = a.dataset.action;
         const form = this.form;
         for( let item_index in this.object.items ){
-            if( this.object.items[item_index]._id == action ){
+            if( this.object.items[item_index]._id === action ){
                 const updateData = { data: {} };
                 updateData.data["storage"] = "HANDS";
                 const updated = await this.object.items[item_index].update(updateData);                
@@ -159,7 +157,7 @@ export class MazeRatCharacterSheet extends ActorSheet {
         const action = a.dataset.action;
         const form = this.form;
         for( let item_index in this.object.items ){
-            if( this.object.items[item_index]._id == action ){
+            if( this.object.items[item_index]._id === action ){
                 const updateData = { data: {} };
                 updateData.data["storage"] = "BELT";
                 const updated = await this.object.items[item_index].update(updateData);                
@@ -173,7 +171,7 @@ export class MazeRatCharacterSheet extends ActorSheet {
         const action = a.dataset.action;
         const form = this.form;
         for( let item_index in this.object.items ){
-            if( this.object.items[item_index]._id == action ){
+            if( this.object.items[item_index]._id === action ){
                 const updateData = { data: {} };
                 updateData.data["storage"] = "WORN";
                 const updated = await this.object.items[item_index].update(updateData);                
@@ -187,7 +185,7 @@ export class MazeRatCharacterSheet extends ActorSheet {
         const action = a.dataset.action;
         const form = this.form;
         for( let item_index in this.object.items ){
-            if( this.object.items[item_index]._id == action ){
+            if( this.object.items[item_index]._id === action ){
                 const updateData = { data: {} };
                 updateData.data["storage"] = "";
                 const updated = await this.object.items[item_index].update(updateData);                

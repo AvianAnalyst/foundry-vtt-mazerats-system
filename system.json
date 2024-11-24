@@ -1,13 +1,27 @@
 {
-  "name": "mazerats",
+  "id": "maze-rats",
   "title": "Maze Rats",
-  "description": "A system to support playing the Maze Rats RPG ruleset.",
-  "version": 0.1,
-  "minimumCoreVersion": "0.4.4",
-  "compatibleCoreVersion": "0.5.0",
-  "templateVersion": 1,
-  "author": "Nathan Mitchell",
-  "esmodules": ["module/simple.js"],
+  "description": "A system to support playing the Maze Rats RPG ruleset. Forked from https://github.com/thecsapprentice/foundry-vtt-mazerats-system.",
+  "version": "0.0.1",
+  "compatibility":{
+    "minimum": 12,
+    "verified": 12
+  },
+  "authors": [{
+    "name": "Kylan Byrd",
+    "email": "kylan@hey.com",
+    "discord": "aviananalyst"
+  }, {
+    "name": "Nathan Mitchell - former author"
+  }],
+  "esmodules": [
+    "module/simple.js",
+    "module/character-sheet.js",
+    "module/generators.js",
+    "module/item-sheet.js",
+    "module/mazerat_actor.js",
+    "module/monster-sheet.js"
+  ],
   "scripts":["module/d3plus-text.full.min.js"],
   "styles": ["styles/simple.css"],
   "packs": [
@@ -16,54 +30,55 @@
           "label": "Misc. Items",
           "system": "mazerats",
           "path": "./packs/miscitems.db",
-          "entity": "Item"
+          "type": "Item"
       },
       {
           "name": "potionitems",
           "label": "Potion Items",
           "system": "mazerats",
           "path": "./packs/potionitems.db",
-          "entity": "Item"
+          "type": "Item"
       },
       {
           "name": "startingitems",
           "label": "Starting Items",
           "system": "mazerats",
           "path": "./packs/startingitems.db",
-          "entity": "Item"
+          "type": "Item"
       },
       {
           "name": "toolitems",
           "label": "Tool Items",
           "system": "mazerats",
           "path": "./packs/toolitems.db",
-          "entity": "Item"
+          "type": "Item"
       },
       {
           "name": "treasureitems",
           "label": "Treasure Items",
           "system": "mazerats",
           "path": "./packs/treasureitems.db",
-          "entity": "Item"
+          "type": "Item"
       },
       {
           "name": "weaponitems",
           "label": "Weapon Items",
           "system": "mazerats",
           "path": "./packs/weaponitems.db",
-          "entity": "Item"
+          "type": "Item"
       },
       {
           "name": "wornitems",
           "label": "Worn Items",
           "system": "mazerats",
           "path": "./packs/wornitems.db",
-          "entity": "Item"
+          "type": "Item"
       }
   ],
-  "languages": [],
-  "gridDistance": 5,
-  "gridUnits": "ft",
+  "grid": {
+    "distance": 10,
+    "unit": "ft"
+  },
   "primaryTokenAttribute": "stats.hp",
   "secondaryTokenAttribute": ""
 }
